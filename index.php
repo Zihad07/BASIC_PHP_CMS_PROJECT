@@ -28,7 +28,9 @@
                             $post_date = $row['post_date'];
                             $post_image = $row['post_image'];
                             $post_content = $row['post_content'];
+
                     ?>
+
                 <h2>
                     <a href="#"><?php echo $post_title;?></a>
                 </h2>
@@ -37,7 +39,7 @@
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date;?></p>
                 <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <img class="img-responsive" src="images/<?php echo $post_image;?>" alt="">
                 <hr>
                 <p>
                     <?php echo $post_content;?>
