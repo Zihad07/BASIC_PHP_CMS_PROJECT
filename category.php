@@ -1,5 +1,4 @@
 <?php include "includes/db.php";?>
-<?php include "admin/function.php";?>
 <?php include "includes/header.php";?>
     <!-- Navigation -->
     
@@ -20,7 +19,10 @@
                 <!-- First Blog Post -->
                 <?php 
                     
-                        $query = "SELECT * FROM posts WHERE post_status= 'published'";
+                        if(isset($_GET['category'])){
+                            $category_id = $_GET['category'];
+                        }
+                        $query = "SELECT * FROM posts WHERE post_category_id='{$category_id}' ";
                         $select_all_posts_query = mysqli_query($connection,$query);
 
                         while($row = mysqli_fetch_assoc($select_all_posts_query)){
@@ -30,9 +32,7 @@
                             $post_author = $row['post_author'];
                             $post_date = $row['post_date'];
                             $post_image = $row['post_image'];
-                            $post_content = $row['post_content'];
                             $post_content = substr($row['post_content'],0,100);
-                            $post_status = $row['post_status'];
 
                     ?>
 
